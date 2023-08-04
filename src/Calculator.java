@@ -87,18 +87,22 @@ public class Calculator implements ActionListener{
         panel.add(numberButtons[1]); // "#1"
         panel.add(numberButtons[2]); // "#2"
         panel.add(numberButtons[3]); // "#3"
+        panel.add(addButton); // "+"
         panel.add(numberButtons[4]); // "#4"
+
         panel.add(numberButtons[5]); // "#5"
         panel.add(numberButtons[6]); // "#6"
+        panel.add(subButton); // "-"
         panel.add(numberButtons[7]); // "#7"
         panel.add(numberButtons[8]); // "#8"
+
         panel.add(numberButtons[9]); // "#9"
-        panel.add(numberButtons[0]); // "#0"
-        panel.add(addButton); // "+"
-        panel.add(subButton); // "-"
         panel.add(mulButton); // "*"
-        panel.add(equButton); // "="
         panel.add(decButton);
+        panel.add(numberButtons[0]); // "#0"
+
+        panel.add(equButton); // "="
+
         panel.add(divButton);
         panel.add(delButton);
 
@@ -118,7 +122,17 @@ public class Calculator implements ActionListener{
     }
 
     public void actionPerformed(java.awt.event.ActionEvent e) {
-        ;
+        // checks if someone clicks a button
+        for(int i = 0; i<10; i++){
+            // if the click is at the current button clicked
+            if(e.getSource() == numberButtons[i]){
+                // gets the text of the numbers to show on the screen when clicked
+                textField.setText(textField.getText().concat(String.valueOf(i)));
+            }
+        }
+        if(e.getSource() == decButton){
+            textField.setText(textField.getText().concat("."));
+        }
     }
 }
 
