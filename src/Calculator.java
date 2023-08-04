@@ -21,14 +21,14 @@ public class Calculator implements ActionListener{
 
     //holds an operator
     char operator;
-    //constructor
+    //constructor below
     Calculator(){
         // title for our calculator
         frame = new JFrame("Calculator");
         // allows us to close the GUI
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // x-y cords for GUI size
-        frame.setSize(400, 550);
+        frame.setSize(420, 550);
         frame.setLayout(null);
 
         // information for the textfield of the program
@@ -44,7 +44,7 @@ public class Calculator implements ActionListener{
         mulButton = new JButton("*");
         divButton = new JButton("/");
         decButton = new JButton(".");
-        delButton = new JButton("DELETE");
+        delButton = new JButton("DEL");
         equButton = new JButton("=");
         clrButton = new JButton("CLEAR");
 
@@ -66,17 +66,46 @@ public class Calculator implements ActionListener{
         }
 
         // this loops through the number buttons (1 to 10)
-        for (int i =0; i<10; i++){
-            numberButtons[i] = new JButton(String.valueOf(i));
-            numberButtons[i].addActionListener(this);
-            numberButtons[i].setFont(font);
-            numberButtons[i].setFocusable(false);
+        for (int j =0; j<10; j++){
+            numberButtons[j] = new JButton(String.valueOf(j));
+            numberButtons[j].addActionListener(this);
+            numberButtons[j].setFont(font);
+            numberButtons[j].setFocusable(false);
         }
 
         // location of buttons
         delButton.setBounds(50, 430, 145, 50);
         clrButton.setBounds(205, 430, 145, 50);
+
+        panel = new JPanel();
+        panel.setBounds(50, 100, 300, 300);
+        // number of rows and columns in the panel of numbers && space between
+        panel.setLayout(new GridLayout(4,4, 10, 10));
+//        panel.setBackground(Color.CYAN);
+
+        // adding pannel numbers/functions/operations to the calculator frame:
+        panel.add(numberButtons[1]); // "#1"
+        panel.add(numberButtons[2]); // "#2"
+        panel.add(numberButtons[3]); // "#3"
+        panel.add(numberButtons[4]); // "#4"
+        panel.add(numberButtons[5]); // "#5"
+        panel.add(numberButtons[6]); // "#6"
+        panel.add(numberButtons[7]); // "#7"
+        panel.add(numberButtons[8]); // "#8"
+        panel.add(numberButtons[9]); // "#9"
+        panel.add(numberButtons[0]); // "#0"
+        panel.add(addButton); // "+"
+        panel.add(subButton); // "-"
+        panel.add(mulButton); // "*"
+        panel.add(equButton); // "="
+        panel.add(decButton);
+        panel.add(divButton);
+        panel.add(delButton);
+
+
+
         // adding the buttons above to the frame:
+        frame.add(panel);
         frame.add(delButton);
         frame.add(clrButton);
 
