@@ -1,1 +1,2 @@
-Simple Java Calculator
+# What is this? 
+A Simple Java Calculator :)
